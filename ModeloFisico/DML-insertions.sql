@@ -19,11 +19,15 @@ VALUES ('500.896.555-30', 'Josevaldo da Silva Junior', DATE'1995-10-04', '32150-
 ;
 
 INSERT INTO Aluno 
-VALUES ('895.999.754-65', 'Maria Clara Almeida de Oliveira', DATE'2000-07-15', '75649-002', 'Avenida Boa Viagem, 1345', 1001, 'CC001')
+VALUES ('895.999.754-65', 'Maria Clara Almeida de Oliveira', DATE'2000-07-15', '75649-002', 'Avenida Boa Viagem, 1345', 1738, 'EC001')
 ;
 
 INSERT INTO Aluno 
 VALUES ('500.896.666-30', 'Ana Alice Victoria Dayane dos Santos', DATE'2001-08-22', '99729-001', 'Rua Internacional Sogradesce, 300', 5006, 'SI001')
+;
+
+INSERT INTO Aluno 
+VALUES ('123.456.789-77', 'John Doe', DATE'2001-03-15', '55555-001', 'Rua Henrique Santos, 30', 5006, 'SI001')
 ;
 
 INSERT INTO Aluno 

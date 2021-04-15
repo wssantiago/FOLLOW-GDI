@@ -46,6 +46,16 @@ WHERE EXISTS (
     WHERE p.DOI = a.DOI AND p.cod_plataforma = '167QP67850RQZ30'
 );
 
+-- Projetar os nomes dos professores que são coordenadores
+SELECT P.nome as Nome
+FROM Professor P
+WHERE P.CPF IN (
+    SELECT P2.CPF_coordenador
+    FROM Professor P2
+    WHERE P2.CPF_coordenador IS NOT NULL
+);
+
+
 -- Anti Join
 
 
@@ -56,3 +66,40 @@ WHERE a.CPF NOT IN (
     SELECT p.CPF_Aluno FROM Participa p
     WHERE p.DOI_artigo IS NOT NULL
 );
+
+
+
+-- Subconsulta do tipo escalar
+
+-- Projetar os nomes das Disciplinas com carga horária maior do que a carga horária média
+SELECT D.nome AS Nome
+FROM Disciplina D
+WHERE D.carga_horaria > (SELECT AVG(D2.carga_horaria)
+                         FROM Disciplina D2)
+;
+
+
+-- Subconsulta do tipo linha
+
+-- Projetar os nomes dos alunos que nasceram no mesmo ano e fazem o mesmo curso que o(a) aluno(a) de CPF 500.896.666-30
+
+SELECT A.nome
+FROM Aluno A
+WHERE (EXTRACT(YEAR FROM A.dt_nascimento), A.cod_curso) = (SELECT EXTRACT(YEAR FROM A2.dt_nascimento), A2.cod_curso
+                                                           FROM Aluno A2
+                                                           WHERE A2.CPF = '500.896.666-30')
+;
+
+
+-- Operação de Conjunto
+
+-- Projetar o nome de todos alunos e professores cujo nome começa com a letra M
+
+SELECT A.nome, 'Aluno(a)' as AlunoOuProfessor
+FROM Aluno A 
+WHERE A.nome LIKE 'M%'
+UNION 
+SELECT P.nome, 'Professor(a)' as AlunoOuProfessor
+FROM Professor P 
+WHERE P.nome LIKE 'M%'
+;
