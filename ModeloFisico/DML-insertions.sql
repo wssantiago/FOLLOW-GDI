@@ -27,7 +27,7 @@ VALUES ('500.896.666-30', 'Ana Alice Victoria Dayane dos Santos', DATE'2001-08-2
 ;
 
 INSERT INTO Aluno 
-VALUES ('123.456.789-77', 'John Doe', DATE'2001-03-15', '55555-001', 'Rua Henrique Santos, 30', 5006, 'SI001')
+VALUES ('123.456.789-77', 'John Doe', DATE'2001-03-15', '55555-001', 'Rua Henrique Santos, 30', 8461, 'SI001')
 ;
 
 INSERT INTO Aluno 

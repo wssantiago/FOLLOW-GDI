@@ -37,7 +37,7 @@ CREATE TABLE Aluno(
     dt_nascimento DATE, 
     end_CEP VARCHAR(9), 
     end_logradouro VARCHAR(100), 
-    matricula INT, 
+    matricula INT UNIQUE, 
     cod_curso VARCHAR(5) NOT NULL, 
     CONSTRAINT Aluno_pk PRIMARY KEY (CPF), 
     CONSTRAINT Aluno_Curso_fk FOREIGN KEY (cod_curso) REFERENCES Curso(cod_curso), 
