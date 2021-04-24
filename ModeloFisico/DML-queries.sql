@@ -46,15 +46,6 @@ WHERE EXISTS (
     WHERE p.DOI = a.DOI AND p.cod_plataforma = '167QP67850RQZ30'
 );
 
--- Projetar os nomes dos professores que são coordenadores
-SELECT P.nome as Nome
-FROM Professor P
-WHERE P.CPF IN (
-    SELECT P2.CPF_coordenador
-    FROM Professor P2
-    WHERE P2.CPF_coordenador IS NOT NULL
-);
-
 
 -- Anti Join
 
@@ -89,6 +80,17 @@ WHERE (EXTRACT(YEAR FROM A.dt_nascimento), A.cod_curso) = (SELECT EXTRACT(YEAR F
                                                            FROM Aluno A2
                                                            WHERE A2.CPF = '500.896.666-30')
 ;
+
+-- Subconsulta do tipo tabela
+
+-- Projetar os nomes dos professores que são coordenadores
+SELECT P.nome as Nome
+FROM Professor P
+WHERE P.CPF IN (
+    SELECT P2.CPF_coordenador
+    FROM Professor P2
+    WHERE P2.CPF_coordenador IS NOT NULL
+);
 
 
 -- Operação de Conjunto
