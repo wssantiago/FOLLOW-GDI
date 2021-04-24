@@ -50,7 +50,7 @@ CREATE TABLE Professor(
     dt_nascimento DATE, 
     end_CEP VARCHAR(9), 
     end_logradouro VARCHAR(100), 
-    cod_professor INT, 
+    cod_professor INT UNIQUE, 
     CPF_coordenador VARCHAR(14), 
     CONSTRAINT Professor_pk PRIMARY KEY (CPF), 
     CONSTRAINT Coordenado_Coordenador_fk FOREIGN KEY (CPF_coordenador) REFERENCES Professor(CPF), 
