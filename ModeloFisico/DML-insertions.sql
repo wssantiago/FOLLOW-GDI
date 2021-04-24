@@ -50,6 +50,10 @@ INSERT INTO Professor
 VALUES ('333.888.999-00', 'Maria Antonia Josefa Joana', DATE'1965-06-01', '13054-890', 'Rua Austria Pog, 1755', 3265, '111.111.111-00')
 ;
 
+INSERT INTO Professor 
+VALUES ('555.146.999-03', 'Felipe Gonçalves', DATE'1991-07-14', '23147-050', 'Rua dos Hexas, 666', 6006, NULL)
+;
+
 INSERT INTO Telefone 
 VALUES ('111.111.111-00', '90800-9090')
 ;
@@ -84,6 +88,10 @@ VALUES ('325IU99847PQG11', 'Plataforma Sogradesce', 'www.sogrinhartigos.com.br')
 
 INSERT INTO PlataformaPublicacao 
 VALUES ('180XD65550RTZ15', 'Dale Artigos Cientificos', 'www.platadale.com')
+;
+
+INSERT INTO PlataformaPublicacao 
+VALUES ('687RT68110RXO18', 'Rexpeita Artigos Cientificos', 'www.rexpeita.com.br')
 ;
 
 INSERT INTO ArtigoCientifico 
@@ -136,6 +144,10 @@ VALUES ('XD556', 'Saude', 'Qualidade de vida nas cidades', '787.560.333-01')
 
 INSERT INTO IniciacaoCientifica 
 VALUES ('PQ224', 'Educacao Fisica', 'Analise de exercicios', '333.888.999-00')
+;
+
+INSERT INTO IniciacaoCientifica 
+VALUES ('RX666', 'Esportes', 'Jogos online', '555.146.999-03')
 ;
 
 INSERT INTO Participa 
