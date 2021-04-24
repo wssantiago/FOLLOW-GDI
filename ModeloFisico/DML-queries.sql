@@ -46,7 +46,6 @@ WHERE EXISTS (
     WHERE p.DOI = a.DOI AND p.cod_plataforma = '167QP67850RQZ30'
 );
 
-
 -- Anti Join
 
 
@@ -57,7 +56,6 @@ WHERE a.CPF NOT IN (
     SELECT p.CPF_Aluno FROM Participa p
     WHERE p.DOI_artigo IS NOT NULL
 );
-
 
 
 -- Subconsulta do tipo escalar
