@@ -51,19 +51,16 @@ CREATE OR REPLACE FUNCTION contaPessoas(letraAluno CHAR, letraProf CHAR) RETURN 
         RETURN contaAluno + contaProfessor;
     END;
 
--- Retorna o código do artigo mais velho
-CREATE OR REPLACE FUNCTION artigoMaisAntigo RETURN VARCHAR2 IS
-    doiMaisVelho ArtigoCientifico.DOI%TYPE;
+-- Retorna a quantidade de artigos que a plataforma dada publicou
+CREATE OR REPLACE FUNCTION qtdArtigosPlataforma(codigoPlataforma PlataformaPublicacao.cod_plataforma%TYPE) RETURN INT IS
+    qtd INT;
 
     BEGIN
-        SELECT A1.DOI INTO doiMaisVelho
-        FROM ArtigoCientifico A1
-        WHERE A1.dt_escrita = (
-            SELECT MIN(A2.dt_escrita)
-            FROM ArtigoCientifico A2
-        );
+        SELECT COUNT(*) INTO qtd
+        FROM Publicado P
+        WHERE P.cod_plataforma = codigoPlataforma;
 
-        RETURN doiMaisVelho;
+        RETURN qtd;
     END;
 
 -- evento que printa o nome antigo e novo do aluno ao ser modificado

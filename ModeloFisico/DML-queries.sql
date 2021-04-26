@@ -8,12 +8,12 @@ GROUP BY cod_curso
 ORDER BY Qtd DESC;
 
 -- Agrupar, por CPF do Professor, a quantidade de disciplinas lecionadas após o ano de 2019.
--- Mostrar apenas professores com mais de uma disciplina lecionada após 2019.
-SELECT CPF_professor, COUNT(cod_curso)
+-- Projetar apenas professores com mais de uma disciplina lecionada após 2019.
+SELECT CPF_professor, COUNT(*)
 FROM Leciona
 WHERE dt_inicio > DATE'2019-12-31'
 GROUP BY CPF_professor
-HAVING COUNT(cod_curso) > 1;
+HAVING COUNT(*) > 1;
 
 -- Inner Join
 
