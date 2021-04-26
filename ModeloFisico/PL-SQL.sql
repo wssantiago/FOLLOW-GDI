@@ -23,7 +23,7 @@ CREATE OR REPLACE PROCEDURE professoresEDisciplina(CPFdoProfessor Professor.CPF%
         WHERE (D.cod_disciplina, D.cod_curso) IN (
             SELECT L.cod_disciplina, L.cod_curso
             FROM Leciona L
-            WHERE L.CPFdoProfessor = CPFdoProfessor
+            WHERE L.CPF_Professor = CPFdoProfessor
         );
     
     BEGIN
