@@ -63,8 +63,9 @@ CREATE OR REPLACE FUNCTION qtdArtigosPlataforma(codigoPlataforma PlataformaPubli
         RETURN qtd;
     END;
 
--- evento que printa o nome antigo e novo do aluno ao ser modificado
-CREATE OR REPLACE TRIGGER evento
+-- Gatilho que imprime o nome antigo e o novo do aluno ao ser modificado,
+-- o antigo nome ao ser deletado e o novo nome ao ser inserido.
+CREATE OR REPLACE TRIGGER gatilhoAluno
 AFTER DELETE OR INSERT OR UPDATE OF nome ON Aluno
 FOR EACH ROW
     BEGIN
