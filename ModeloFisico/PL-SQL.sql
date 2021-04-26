@@ -14,6 +14,7 @@ CREATE OR REPLACE PROCEDURE alunos(cursoCodigo Aluno.cod_curso%TYPE) IS
         END LOOP;
 
     END;
+/
 
 -- Printar o nome, o código da disciplina e o código do curso que o professor com CPF = CPFdoProfessor leciona
 CREATE OR REPLACE PROCEDURE professoresEDisciplina(CPFdoProfessor Professor.CPF%TYPE) IS
@@ -33,6 +34,7 @@ CREATE OR REPLACE PROCEDURE professoresEDisciplina(CPFdoProfessor Professor.CPF%
         END LOOP;
 
     END;
+/
 
 -- Conta a quantidade de pessoas cujo nome começa com a letra dada
 CREATE OR REPLACE FUNCTION contaPessoas(letraAluno CHAR, letraProf CHAR) RETURN INT IS
@@ -50,6 +52,7 @@ CREATE OR REPLACE FUNCTION contaPessoas(letraAluno CHAR, letraProf CHAR) RETURN 
 
         RETURN contaAluno + contaProfessor;
     END;
+/
 
 -- Retorna a quantidade de artigos que a plataforma dada publicou
 CREATE OR REPLACE FUNCTION qtdArtigosPlataforma(codigoPlataforma PlataformaPublicacao.cod_plataforma%TYPE) RETURN INT IS
@@ -62,7 +65,7 @@ CREATE OR REPLACE FUNCTION qtdArtigosPlataforma(codigoPlataforma PlataformaPubli
 
         RETURN qtd;
     END;
-
+/
 -- Gatilho que imprime o nome antigo e o novo do aluno ao ser modificado,
 -- o antigo nome ao ser deletado e o novo nome ao ser inserido.
 CREATE OR REPLACE TRIGGER gatilhoAluno
@@ -80,3 +83,4 @@ FOR EACH ROW
             DBMS_OUTPUT.PUT_LINE('Nome deletado: ' || :OLD.nome);
         END IF;
     END;
+/
