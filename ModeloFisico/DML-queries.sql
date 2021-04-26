@@ -62,7 +62,7 @@ WHERE a.CPF NOT IN (
 -- Subconsulta do tipo escalar
 
 -- Projetar os nomes das Disciplinas com carga horária maior do que a carga horária média
-SELECT D.nome AS Nome, cod_curso AS CodigoDoCurso
+SELECT D.nome AS Nome, D.cod_curso AS CodigoDoCurso
 FROM Disciplina D
 WHERE D.carga_horaria > (SELECT AVG(D2.carga_horaria)
                          FROM Disciplina D2)
